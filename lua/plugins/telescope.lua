@@ -11,11 +11,13 @@ return {
       require("telescope").setup({
         extensions = {
           ["ui-select"] = {
-            require("telescope.themes").get_dropdown({}),
+            require("telescope.themes").get_dropdown({
+              --custom options
+            }),
           },
         },
       })
-      require("telescope").load_extension("ui-starter")
+      require("telescope").load_extension("ui-select")
     end,
   },
 }
