@@ -6,3 +6,13 @@ vim.keymap.set("n", "<leader>ff", telescopeBuiltin.find_files, { desc = "Telesco
 vim.keymap.set("n", "<leader>fg", telescopeBuiltin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", telescopeBuiltin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", telescopeBuiltin.help_tags, { desc = "Telescope help tags" })
+
+-- neo tree
+local neo = require("neo-tree.command")
+vim.keymap.set("n", "<leader>o", function()
+  neo.execute({ command = "focus" })
+end, { desc = "NeoTree Focus" })
+
+-- neoGen
+local neoGenOpts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap("n", "<leader>ng", ":lua require('neogen').generate()<CR>", neoGenOpts)
