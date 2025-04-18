@@ -30,11 +30,15 @@ return {
         "scss",
       },
       ignore_install = {},
-      highlight = { enabled = true },
-      indent = { enabled = true },
+      highlight = { enable = true },
+      indent = { enable = true },
       auto_install = true,
       sync_install = false,
       modules = {},
+    })
+    vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+      pattern = "*.tsx",
+      command = "set filetype=typescriptreact",
     })
   end,
 }
