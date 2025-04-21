@@ -28,6 +28,7 @@ return {
         "powershell",
         "sql",
         "scss",
+        "go",
       },
       ignore_install = {},
       highlight = { enable = true },
