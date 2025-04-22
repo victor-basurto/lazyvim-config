@@ -5,12 +5,12 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
-      javascript = { "prettier " },
-      typescript = { "prettier " },
-      css = { "prettier " },
-      json = { "prettier " },
-      yaml = { "prettier " },
-      markdown = { "prettier " },
+      javascript = { "prettier" },
+      typescript = { "prettier" },
+      css = { "prettier" },
+      json = { "prettier" },
+      yaml = { "prettier" },
+      markdown = { "prettier" },
     },
     formatter = {
       prettier = {

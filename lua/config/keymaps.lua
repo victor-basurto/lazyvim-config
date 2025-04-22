@@ -50,7 +50,3 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.get_next({ buffer = 0, severity = vim.diagnostic.severity.ERROR })
 end)
-
-keymap.set("n", "<leader>tt", ":ToggleTerm<CR>", { desc = "Toggle terminal" })
--- keymap.set("t", "<Leader>tc", "<cmd>ToggleTermClose<CR>", { desc = "Toggle floating terminal" })
--- vim.keymap.set("n", "<Leader>ft", "<cmd>ToggleTermOpen<CR>", { desc = "Toggle floating terminal" })
