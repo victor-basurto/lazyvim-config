@@ -2,6 +2,11 @@
 return {
   {
     "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "gitui",
+      },
+    },
     config = function()
       require("mason").setup()
     end,
