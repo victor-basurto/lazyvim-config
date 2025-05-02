@@ -31,8 +31,50 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({})
-      lspconfig.tsserver.setup({})
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            hint = {
+              enable = true,
+              array_index = "Enable",
+              param_name_file = "Inline",
+              param_name_group = "LspHint",
+              param_name_luadoc = "Inline",
+              param_name_only = "Inline",
+              param_name_table = "Inline",
+              semicolon = "Disable",
+            },
+          },
+        },
+      })
+      lspconfig.tsserver.setup({
+        capabilities = capabilities,
+        settings = {
+          typescript = {
+            inlayHints = {
+              enabled = true,
+              includeInlayParameterNameHints = "all",
+              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              -- other tsserver-specific inlay hints options if needed
+            },
+          },
+          javascript = {
+            inlayHints = {
+              enabled = true,
+              includeInlayParameterNameHints = "all",
+              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              -- other tsserver-specific inlay hints options if needed
+            },
+          },
+        },
+      })
       lspconfig.cssls.setup({})
       lspconfig.html.setup({})
       lspconfig.jsonls.setup({})
