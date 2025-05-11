@@ -3,17 +3,24 @@
 -- Add any additional keymaps here
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap
+-- discipline, custom plugin inspired by `craftzdog-max/devaslife`
+local discipline = require("utilities.discipline")
+discipline.cowboy()
+-- end discipline
+-- telescope
 local telescopeBuiltin = require("telescope.builtin")
 keymap.set("n", "<leader>ff", telescopeBuiltin.find_files, { desc = "Telescope find files" })
 keymap.set("n", "<leader>fg", telescopeBuiltin.live_grep, { desc = "Telescope live grep" })
 keymap.set("n", "<leader>fb", telescopeBuiltin.buffers, { desc = "Telescope buffers" })
 keymap.set("n", "<leader>fh", telescopeBuiltin.help_tags, { desc = "Telescope help tags" })
+-- end telescope
 
 -- neo tree
 local neo = require("neo-tree.command")
 keymap.set("n", "<leader>o", function()
   neo.execute({ command = "focus" })
 end, { desc = "NeoTree Focus" })
+-- end neo tree
 
 -- neoGen
 vim.api.nvim_set_keymap("n", "<leader>ng", ":lua require('neogen').generate()<CR>", opts)
