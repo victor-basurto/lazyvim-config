@@ -50,3 +50,8 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.get_next({ buffer = 0, severity = vim.diagnostic.severity.ERROR })
 end)
+
+-- open html files in the browser
+keymap.set("n", "<leader>O", function()
+  vim.ui.open(vim.fn.expand("%"))
+end, { desc = "Open in Browser" })
