@@ -4,14 +4,14 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap
 local telescopeBuiltin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", telescopeBuiltin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", telescopeBuiltin.live_grep, { desc = "Telescope live grep" })
-vim.keymap.set("n", "<leader>fb", telescopeBuiltin.buffers, { desc = "Telescope buffers" })
-vim.keymap.set("n", "<leader>fh", telescopeBuiltin.help_tags, { desc = "Telescope help tags" })
+keymap.set("n", "<leader>ff", telescopeBuiltin.find_files, { desc = "Telescope find files" })
+keymap.set("n", "<leader>fg", telescopeBuiltin.live_grep, { desc = "Telescope live grep" })
+keymap.set("n", "<leader>fb", telescopeBuiltin.buffers, { desc = "Telescope buffers" })
+keymap.set("n", "<leader>fh", telescopeBuiltin.help_tags, { desc = "Telescope help tags" })
 
 -- neo tree
 local neo = require("neo-tree.command")
-vim.keymap.set("n", "<leader>o", function()
+keymap.set("n", "<leader>o", function()
   neo.execute({ command = "focus" })
 end, { desc = "NeoTree Focus" })
 
