@@ -5,6 +5,11 @@ return {
     opts = {
       ensure_installed = {
         "gitui",
+        "stylua",
+        "spellcheck",
+        "tailwindcss-language-server",
+        "shfmt",
+        "luacheck",
       },
     },
     config = function()
