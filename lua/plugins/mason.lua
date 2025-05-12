@@ -6,7 +6,7 @@ return {
       ensure_installed = {
         "gitui",
         "stylua",
-        "spellcheck",
+        "shellcheck",
         "tailwindcss-language-server",
         "shfmt",
         "luacheck",
