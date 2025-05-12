@@ -10,6 +10,8 @@ return {
         "tailwindcss-language-server",
         "shfmt",
         "luacheck",
+        "markdownlint-cli2",
+        "markdown-toc",
       },
     },
     config = function()
@@ -84,6 +86,7 @@ return {
       lspconfig.html.setup({})
       lspconfig.jsonls.setup({})
       lspconfig.yamlls.setup({})
+      lspconfig.marksman.setup({})
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
