@@ -81,3 +81,6 @@ end)
 keymap.set("n", "<leader>O", function()
   vim.ui.open(vim.fn.expand("%"))
 end, { desc = "Open in Browser" })
+
+-- inc rename
+keymap.set("n", "<leader>rn", ":IncRename ")
