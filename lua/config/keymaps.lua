@@ -9,10 +9,29 @@ discipline.cowboy()
 -- end discipline
 -- telescope
 local telescopeBuiltin = require("telescope.builtin")
+local telescope = require("telescope")
 keymap.set("n", "<leader>ff", telescopeBuiltin.find_files, { desc = "Telescope find files" })
 keymap.set("n", "<leader>fg", telescopeBuiltin.live_grep, { desc = "Telescope live grep" })
 keymap.set("n", "<leader>fb", telescopeBuiltin.buffers, { desc = "Telescope buffers" })
 keymap.set("n", "<leader>fh", telescopeBuiltin.help_tags, { desc = "Telescope help tags" })
+keymap.set("n", "<leader>fi", telescopeBuiltin.resume, { desc = "Telescope resume" })
+keymap.set("n", "<leader>fj", telescopeBuiltin.diagnostics, { desc = "Telescope diagnostics" })
+keymap.set("n", "<leader>fk", telescopeBuiltin.treesitter, { desc = "Telescope treesitter" })
+keymap.set("n", "<leader>fl", function()
+  local function telescope_buffer_dir()
+    return vim.fn.expand("%:p:h")
+  end
+  telescope.extensions.file_browser.file_browser({
+    path = "%:p:h",
+    cwd = telescope_buffer_dir(),
+    respect_gitignore = false,
+    hidden = true,
+    grouped = true,
+    previewer = false,
+    initial_mode = "normal",
+    layout_config = { height = 40 },
+  })
+end)
 -- end telescope
 
 -- neo tree
