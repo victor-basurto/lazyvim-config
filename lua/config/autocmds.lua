@@ -15,3 +15,9 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.wo.conceallevel = 0
   end,
 })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*/templates/*",
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
