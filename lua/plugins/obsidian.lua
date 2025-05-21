@@ -8,21 +8,26 @@ return {
     "nvim-telescope/telescope.nvim",
   },
   opts = {
+    -- current working directory for notes.
     workspaces = {
       {
         name = "ObsidianWork",
         path = "~/obsidian-work",
       },
     },
-    notes_subdir = "inbox",
-    new_notes_location = "notes_subdir",
     log_level = vim.log.levels.INFO,
+    notes_subdir = "inbox", -- store notes in the `inbox` directory
+    new_notes_location = "notes_subdir", -- new notes should be store in the `notes_subdir` -> `inbox`
     preferred_link_style = "wiki", -- Either 'wiki' or 'markdown'.
+
+    -- store attachments in the `assets` directory.
     attachments = {
       img_folder = "assets",
     },
+
+    -- daily notes configuration
     daily_notes = {
-      -- Optional, if you keep daily notes in a separate directory.
+      -- keep daily notes in a separate directory.
       folder = "notes",
       -- date format for the ID of daily notes.
       date_format = "%Y-%m-%d",
@@ -30,10 +35,11 @@ return {
       alias_format = "%B %-d, %Y",
       -- default tags to add to each new daily note created.
       default_tags = { "daily-notes" },
-      -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+      -- automatically insert a template from your template directory
       template = "notes.md",
     },
 
+    -- auto completion
     completion = {
       blink = true,
       min_chars = 2,
@@ -108,7 +114,7 @@ return {
       return out
     end,
 
-    -- templates.
+    -- templates configuration
     templates = {
       folder = "templates",
       date_format = "%Y-%m-%d",
@@ -116,6 +122,7 @@ return {
       substitutions = {},
     },
 
+    -- picker configuration
     picker = {
       -- 'telescope.nvim' as default picker
       name = "telescope.nvim",
