@@ -6,7 +6,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
-    "hrsh7th/nvim-cmp",
   },
   opts = {
     workspaces = {
@@ -19,17 +18,20 @@ return {
     new_notes_location = "notes_subdir",
     log_level = vim.log.levels.INFO,
     preferred_link_style = "wiki", -- Either 'wiki' or 'markdown'.
+    attachments = {
+      img_folder = "assets",
+    },
     daily_notes = {
       -- Optional, if you keep daily notes in a separate directory.
       folder = "notes",
-      -- Optional, if you want to change the date format for the ID of daily notes.
+      -- date format for the ID of daily notes.
       date_format = "%Y-%m-%d",
-      -- Optional, if you want to change the date format of the default alias of daily notes.
+      -- date format of the default alias of daily notes.
       alias_format = "%B %-d, %Y",
-      -- Optional, default tags to add to each new daily note created.
+      -- default tags to add to each new daily note created.
       default_tags = { "daily-notes" },
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-      template = "new_note",
+      template = "notes.md",
     },
 
     completion = {
@@ -47,7 +49,7 @@ return {
         opts = { noremap = false, expr = true, buffer = true },
       },
       -- Toggle check-boxes.
-      ["<leader>ch"] = {
+      ["<leader>cho"] = {
         action = function()
           return require("obsidian").util.toggle_checkbox()
         end,
@@ -62,27 +64,30 @@ return {
       },
     },
 
-    -- Optional, customize how note IDs are generated given an optional title.
+    -- how note IDs are generated given an optional title.
     ---@param title string|?
     ---@return string
     note_id_func = function(title)
-      -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+      -- Create note IDs in a Zettelkasten format with a timestamp, date and a suffix.
       -- In this case a note with the title 'My new note' will be given an ID that looks
-      -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+      -- like '1657296016-my-new-note', and therefore the file name '05-12-2025-my-new-note.md'
+      local date_string = tostring(os.date("%x"))
+      local new_date_formatted = string.gsub(date_string, "/", "-")
       local suffix = ""
+
       if title ~= nil then
         -- If title is given, transform it into valid file name.
-        suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+        suffix = title:gsub(" ", "-"):gsub(new_date_formatted, ""):lower()
       else
         -- If title is nil, just add 4 random uppercase letters to the suffix.
         for _ = 1, 4 do
           suffix = suffix .. string.char(math.random(65, 90))
         end
       end
-      return tostring(os.time()) .. "-" .. suffix
+      return tostring(new_date_formatted) .. "-" .. suffix
     end,
 
-    -- Optional, alternatively you can customize the frontmatter data.
+    -- frontmatter data.
     ---@return table
     note_frontmatter_func = function(note)
       -- Add the title of the note as an alias.
@@ -103,7 +108,7 @@ return {
       return out
     end,
 
-    -- Optional, for templates (see below).
+    -- templates.
     templates = {
       folder = "templates",
       date_format = "%Y-%m-%d",
