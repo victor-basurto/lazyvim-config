@@ -84,3 +84,12 @@ end, { desc = "Open in Browser" })
 
 -- inc rename
 keymap.set("n", "<leader>rn", ":IncRename ")
+
+-- obsidian
+-- apply template `notes.md` to new notes
+keymap.set("n", "<leader>on", ":ObsidianTemplate notes<CR> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<CR>")
+-- strip date from note title and replace dashes with spaces
+keymap.set("n", "<leader>of", ":s/\\(#\\)[^_]*_/\\1/ | s/-/ /g<CR>")
+-- TODO: add keymap to move file in current buffer to zettelkasten folder
+-- TODO: add keymap to delete file in current buffer
+-- end obsidian

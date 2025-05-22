@@ -16,6 +16,7 @@ return {
       },
     },
     log_level = vim.log.levels.INFO,
+    disable_frontmatter = true,
     notes_subdir = "inbox", -- store notes in the `inbox` directory
     new_notes_location = "notes_subdir", -- new notes should be store in the `notes_subdir` -> `inbox`
     preferred_link_style = "wiki", -- Either 'wiki' or 'markdown'.
