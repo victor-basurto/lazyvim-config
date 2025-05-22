@@ -77,7 +77,7 @@ return {
       -- Create note IDs in a Zettelkasten format with a timestamp, date and a suffix.
       -- In this case a note with the title 'My new note' will be given an ID that looks
       -- like '1657296016-my-new-note', and therefore the file name '05-12-2025-my-new-note.md'
-      local date_string = tostring(os.date("%x"))
+      local date_string = tostring(os.date("%Y-%m-%d"))
       local new_date_formatted = string.gsub(date_string, "/", "-")
       local suffix = ""
 
