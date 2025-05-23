@@ -34,13 +34,6 @@ keymap.set("n", "<leader>fl", function()
 end)
 -- end telescope
 
--- neo tree
-local neo = require("neo-tree.command")
-keymap.set("n", "<leader>o", function()
-  neo.execute({ command = "focus" })
-end, { desc = "NeoTree Focus" })
--- end neo tree
-
 -- neoGen
 vim.api.nvim_set_keymap("n", "<leader>ng", ":lua require('neogen').generate()<CR>", opts)
 
