@@ -91,5 +91,11 @@ keymap.set("n", "<leader>on", ":ObsidianTemplate notes<CR> :lua vim.cmd([[1,/^\\
 -- strip date from note title and replace dashes with spaces
 keymap.set("n", "<leader>of", ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>")
 -- TODO: add keymap to move file in current buffer to zettelkasten folder
--- TODO: add keymap to delete file in current buffer
+-- delete file in current buffer MacOs
+keymap.set("n", "<leader>odd", ":!rm '%:p'<cr>:bd<cr>")
+-- delete file in current buffer windows
+-- TODO: by default, windows doesnt remove the file, only closes the current buffer from where the command was triggered
+-- in order to delete the file from the system, we will need to create a custom function
+-- to executes shell commands
+keymap.set("n", "<leader>owd", ":!del '%:p'<cr>:bd<cr>")
 -- end obsidian
