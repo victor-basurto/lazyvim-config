@@ -35,7 +35,7 @@ return {
         file_browser = {
           theme = "dropdown",
           -- force telescope_file_browser
-          hijack_netrw = true,
+          hijack_netrw = false,
           mappings = {
             ["n"] = {
               ["N"] = fb_actions.create,
