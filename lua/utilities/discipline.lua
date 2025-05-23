@@ -5,7 +5,7 @@ function M.strict()
   local ok = true
   for _, key in ipairs({ "h", "j", "k", "l", "+", "-" }) do
     local count = 0
-    local timer = assert(vim.loop.new_timer())
+    local timer = assert(vim.uv.new_timer())
     local map = key
     local keymap = vim.keymap
     keymap.set("n", key, function()
