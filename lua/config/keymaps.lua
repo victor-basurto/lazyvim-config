@@ -5,7 +5,7 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap
 -- discipline, custom plugin inspired by `craftzdog-max/devaslife`
 local discipline = require("utilities.discipline")
-discipline.cowboy()
+discipline.strict()
 -- end discipline
 -- telescope
 local telescopeBuiltin = require("telescope.builtin")

@@ -1,5 +1,5 @@
 local M = {}
-function M.cowboy()
+function M.strict()
   --- @type table?
   local id
   local ok = true
