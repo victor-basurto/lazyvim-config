@@ -87,8 +87,9 @@ keymap.set("n", "<leader>of", ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>")
 -- delete file in current buffer MacOs
 keymap.set("n", "<leader>odd", ":!rm '%:p'<cr>:bd<cr>")
 -- delete file in current buffer windows
--- TODO: by default, windows doesnt remove the file, only closes the current buffer from where the command was triggered
--- in order to delete the file from the system, we will need to create a custom function
--- to executes shell commands
-keymap.set("n", "<leader>owd", ":!del '%:p'<cr>:bd<cr>")
+-- This custom function is used to delete the current buffer from the system in windows OS
+keymap.set("n", "<leader>owd", function()
+  local buffer_functions = require("utilities.delete_current_buffer_win")
+  buffer_functions.del_buffer_win()
+end, { desc = "Delete current buffer from system" })
 -- end obsidian
